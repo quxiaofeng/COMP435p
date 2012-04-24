@@ -1,0 +1,365 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 2}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{January 30, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.6in 6.5in 1.6in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.6in 1.4in 1.6in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.7\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+    \subsection{Problem 1: Answer the questions}
+        \begin{frame}[c]{Problem 1.a}
+    			\begin{overprint}
+    			\onslide<1>
+            \emph{Understand some useful definitions in image processing: i) pixel, ii) image, iii) image resolution, d) gray-level image.}
+            \onslide<2>%p3-6
+                \inpdfl{3}{3}
+            \onslide<3>%p3-7
+                \inpdfu{3}{4}
+            \onslide<4>%p3-8
+                \inpdfl{3}{4}
+            \onslide<5>%p3-9
+                \inpdfu{3}{5}
+            \onslide<6>%p3-10
+                \inpdfl{3}{5}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.b}
+    			\begin{overprint}
+    			\onslide<1>
+            \emph{What is image histogram? What are peaks and plains in image histogram? Compare the differences between two types of bimodal histograms.}
+            \onslide<2>%p3-11
+                \inpdfu{3}{6}
+            \onslide<3>%p3-12
+                \inpdfl{3}{6}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.c}
+    			\begin{overprint}
+    			\onslide<1>
+            \emph{Understand the point operation. Contrast enhancement is the main application of pixel operation. How many methods of contrast enhancement do you learn? Please compare them.}
+            \onslide<2>%p3-14
+                \inpdfl{3}{7}
+            \onslide<3>%p3-15
+                \inpdfu{3}{8}
+            \onslide<4>%p3-16
+                \inpdfl{3}{8}
+            \onslide<5>%p3-17
+                \inpdfu{3}{9}
+            \onslide<6>%p3-18
+                \inpdfl{3}{9}
+            \onslide<7>%p3-19
+                \inpdfu{3}{10}
+            \onslide<8>%p3-20
+                \inpdfl{3}{10}
+            \onslide<9>%p3-21
+                \inpdfu{3}{11}
+            \onslide<10>%p3-22
+                \inpdfl{3}{11}
+            \onslide<11>%p3-23
+                \inpdfu{3}{12}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.d}
+    			\begin{overprint}
+    			\onslide<1>
+            \emph{(d)	Why neighbourhood operations? Give the applications of group operations.}
+            \onslide<2>%p3-25
+                \inpdfu{3}{13}
+            \onslide<3>%p3-26
+                \inpdfl{3}{13}\qed
+            \end{overprint}            
+        \end{frame}
+        
+    \subsection{Problem 2: Power law function}
+        \begin{frame}[c]{\subsecname}
+            \emph{What is the power law function? Give the LUT when $\gamma=0.5$ in terms of the table in P3-20. Compare the two LUT and understand the impact of the parameter $\gamma=0.5$.}
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            \onslide<1>%p3-17
+                \inpdfu{3}{9}
+            \onslide<2>%p3-18
+                \inpdfl{3}{9}
+            \onslide<3>%p3-19
+                \inpdfu{3}{10}
+            \onslide<4>%p3-20
+                \inpdfl{3}{10}
+            \end{overprint}   
+        \end{frame}    
+        
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}
+            \onslide<1>
+            	\centering
+                \begin{align*}
+             I=& & [ & & 0    & & 0.10 & & 0.20 & & 0.30 & & 0.40 & & 0.50 & & \\
+               & &   & & 0.60 & & 0.70 & & 0.80 & & 0.90 & & 1.00 & &      & & ]\\
+             O=& &   & & I^\gamma\\
+             O=& & [ & & 0^{0.5}       & & 0.10^{0.5}    & & 0.20^{0.5}    
+                     & & 0.30^{0.5}    & & 0.40^{0.5}    & & 0.50^{0.5}    & & \\
+               & &   & & 0.60^{0.5}    & & 0.70^{0.5}    & & 0.80^{0.5} 
+                     & & 0.90^{0.5}    & & 1.00^{0.5}    & &               & & ]\\                
+              =& & [ & & 0    & & 0.32 & & 0.45 & & 0.55 & & 0.63 & & 0.71 & & \\
+               & &   & & 0.77 & & 0.84 & & 0.89 & & 0.95 & & 1.00 & &      & & ]\\
+               \qed
+                \end{align*}
+            \end{overprint}   
+        \end{frame}  
+        
+    \subsection{Problem 3: Convolution}
+        \begin{frame}[c]{\subsecname}
+            \emph{Please check the convolution result in P3-33 and try to answer the question in P3-34. Now there is an input image and a mask as below. Could you give the convolved image?}
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            \onslide<1>%p3-27
+                \inpdfu{3}{14}
+            \onslide<2>%p3-28
+                \inpdfl{3}{14}
+            \onslide<3>%p3-29
+                \inpdfu{3}{15}
+            \onslide<4>%p3-30
+                \inpdfl{3}{15}
+            \onslide<5>%p3-31
+                \inpdfu{3}{16}
+            \onslide<6>%p3-32
+                \inpdfl{3}{16}
+            \onslide<7>%p3-33
+                \inpdfu{3}{17}
+            \onslide<8>%p3-34
+                \inpdfl{3}{17}
+            \end{overprint}   
+        \end{frame}    
+        
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}
+            \onslide<1>
+            The convolved image size for a 128$\times$128 image and a 7$\times$7 mask is 122$\times$122.
+            \onslide<2>
+            \begin{center} 
+            Mask\\           
+            \begin{tabular}{|r|r|r|}
+                     \hline
+                    -1 & 2 & 1 \\\hline
+                    -1 & 2 & 1 \\\hline
+            \end{tabular}\\$\;$\\
+            Input image\\           
+            \begin{tabular}{|r|r|r|r|r|}
+                    \hline
+                    4 & 4 & 7  & 1 & 9 \\\hline
+                    4 & 3 & 8  & 2 & 9 \\\hline
+                    3 & 5 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 10 & 9 & 9 \\\hline
+            \end{tabular}
+            \end{center}
+            \onslide<3>
+            \begin{center} 
+            Output image\\           
+            \begin{tabular}{|r|r|r|}
+                    \hline
+                    21 & 26 &  9 \\\hline
+                    26 & 37 & 21 \\\hline
+                    34 & 41 & 42 \\\hline
+                    37 & 43 & 33 \\\hline
+            \end{tabular}
+            \end{center}\qed
+            \end{overprint}
+        \end{frame}  
+    
+    \subsection{Problem 4: Noise reduction}
+        \begin{frame}[c]{\subsecname}
+            \emph{There are two methods of noise reduction: low pass filter and median filter (see P3: 37-46). Please give the noise reduction results of the input image in Q3 by using the two methods according to the conditions: a) the mask of low pass filter is $ \frac{1}{9} \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix} $, and b) the mask of median filter is $ \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix} $ }
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            \onslide<1>%p3-37
+                \inpdfu{3}{19}
+            \onslide<2>%p3-38
+                \inpdfl{3}{19}
+            \onslide<3>%p3-39
+                \inpdfu{3}{20}
+            \onslide<4>%p3-40
+                \inpdfl{3}{20}
+            \onslide<5>%p3-41
+                \inpdfu{3}{21}
+            \onslide<6>%p3-42
+                \inpdfl{3}{21}
+            \onslide<7>%p3-43
+                \inpdfu{3}{22}
+            \onslide<8>%p3-44
+                \inpdfl{3}{22}
+            \onslide<9>%p3-45
+                \inpdfu{3}{23}
+            \onslide<10>%p3-46
+                \inpdfl{3}{23}
+            \end{overprint}   
+        \end{frame}    
+        
+        \begin{frame}[c]{\subsecname }
+            \begin{overprint}
+            \onslide<1>
+            \begin{center} 
+            Input image\\           
+            \begin{tabular}{|r|r|r|r|r|}
+                    \hline
+                    4 & 4 & 7  & 1 & 9 \\\hline
+                    4 & 3 & 8  & 2 & 9 \\\hline
+                    3 & 5 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 10 & 9 & 9 \\\hline
+            \end{tabular}
+            \end{center}
+            $\;$\\            
+            \begin{columns}
+            \column{0.5\textwidth}
+            \begin{center} 
+            Low pass filter mask\\           
+            $ \frac{1}{9} \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix} $
+            \end{center}
+            \column{0.5\textwidth}
+            \begin{center}            
+            Result a)\\           
+            \begin{tabular}{|r|r|r|}
+                    \hline
+                    5 & 5 & 7  \\\hline
+                    6 & 6 & 8  \\\hline
+                    6 & 8 & 9  \\\hline
+            \end{tabular}
+            \end{center}
+            \end{columns}
+            \onslide<2>
+            \begin{center} 
+            Input image\\           
+            \begin{tabular}{|r|r|r|r|r|}
+                    \hline
+                    4 & 4 & 7  & 1 & 9 \\\hline
+                    4 & 3 & 8  & 2 & 9 \\\hline
+                    3 & 5 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 9  & 8 & 9 \\\hline
+                    3 & 6 & 10 & 9 & 9 \\\hline
+            \end{tabular}
+            \end{center}
+            $\;$\\            
+            \begin{columns}
+            \column{0.5\textwidth}
+            \begin{center} 
+            Median filter mask\\           
+            $ \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix} $
+            \end{center}
+            \column{0.5\textwidth}
+            \begin{center} 
+            Result b)\\           
+            \begin{tabular}{|r|r|r|}
+                    \hline
+                    4 & 5 & 8  \\\hline
+                    5 & 8 & 9  \\\hline
+                    6 & 8 & 9  \\\hline
+            \end{tabular}
+            \end{center}
+            \end{columns}
+            \qed
+            \end{overprint}
+        \end{frame}  
+    \subsection{Problem 5: Filter operations}    
+        \begin{frame}[c]{\subsecname}
+            \emph{In P3: 47-49 there are some examples of filter operations. Please point out the difference of Low-pass filters, High-pass filters and Edge enhancement filters. Notice that the `'0''-Sum mask for Edge enhancement filters and `'1''-Sum for others. }
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            \onslide<1>%p3-47
+                \inpdfu{3}{24}
+            \onslide<2>%p3-48
+                \inpdfl{3}{24}
+            \onslide<3>%p3-49
+                \inpdfu{3}{25}
+            \end{overprint}   
+        \end{frame}  
+    
+    \begin{frame}<handout:0>[c]{\secname}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

@@ -1,0 +1,294 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 8}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{March 12, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 6.5in 1.4in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 1.4in 1.4in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfc}[2]{\begin{figure}\centering\includegraphics[trim=0.4in 0.1in 0.4in 0.1in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.55\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+
+    \subsection{Problem 1: Answer The Questions}
+    
+    		\begin{frame}[t]{Problem 1.1 Compare Retina and Iris}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Please compare two different kinds of biometrics technologies: Retina and Iris. (P9:2-3)}
+    			\onslide<2> \inpdfc{9}{2}
+    			\onslide<3> \inpdfc{9}{3}
+    			\onslide<4>
+    				\begin{itemize}
+    				\item Differences
+    					\begin{itemize}
+    					\item Location: inner round region for Retina, outer annular region for Iris.
+    					\item Sensor: fundus camera is very expensive and large; general cameras or industrial camera would be fine for the Iris recogntion.
+    					\item Features: geometries for Retina and texture for Iris.
+    					\item Extraction method: Syntactic based features for Retina and Statictical based features for Iris.
+    					\item Performance: Iris is much better than Retina.
+    					\end{itemize}		
+    				\end{itemize}\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.2 Two Kinds of Features}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{There are two kinds of features, Physical feature (Vessels and Optic Disk) and Pathological feature (Red lesion and Bright lesion), in Retina. Please understand how to extract them (P9:7-11).}
+    			\onslide<2> \inpdfc{9}{7}
+    			\onslide<3> \inpdfc{9}{8}
+    			\onslide<4> \inpdfc{9}{9}
+    			\onslide<5> \inpdfc{9}{10}
+    			\onslide<6> \inpdfc{9}{11}
+    			\onslide<7>
+    				\begin{itemize}
+    				\item Physical features	
+    					\begin{itemize}
+    					\item PCA based matching method to extract the region for the optic disk
+    					\item Gaussian filters based line extraction for the vessels
+    					\end{itemize}		
+    				\item Pathological features	
+    					\begin{itemize}
+    					\item Morphological method for the bright lesions
+    					\item SVM based method for the red lesions
+    					\end{itemize}		
+    				\end{itemize}\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.3 Example of Verification System}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{P9:20 show a representative example of identification system. Please give another example of verification system.}
+    			\onslide<2> \inpdfc{9}{20}
+    			\onslide<3> \inpng{verificationsystem}
+    			Personal information: name, ID, smart card, etc. \qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.4 Iris Recognition System}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Please understand the iris recognition system.  (P9: 24-38)}
+    			\onslide<2> \inpdfc{9}{24}
+    			\onslide<3> \inpdfc{9}{25}
+    			\onslide<4> \inpdfc{9}{26}
+    			\onslide<5> \inpdfc{9}{27}
+    			\onslide<6> \inpdfc{9}{28}
+    			\onslide<7> \inpdfc{9}{29}
+    			\onslide<8> \inpdfc{9}{30}
+    			\onslide<9> \inpdfc{9}{31}
+    			\onslide<10> \inpdfc{9}{32}
+    			\onslide<11> \inpdfc{9}{33}
+    			\onslide<12> \inpdfc{9}{34}
+    			\onslide<13> \inpdfc{9}{35}
+    			\onslide<14> \inpdfc{9}{36}
+    			\onslide<15> \inpdfc{9}{37}
+    			\onslide<16> \inpdfc{9}{38}
+    			\onslide<17>
+    				\begin{itemize}
+    				\item procedures		
+    					\begin{itemize}
+    					\item Evaluation of images
+    					\item Processing of images
+    					\item Locating the Iris
+    					\item Feature extraction (Daugman's approach)  
+    					\begin{itemize}
+    					\item Dividing the Iris to eight sectors 
+    					\item Gabor wavelets filters to extract features 
+    					\item Coding by the output of the phase demodulation result 
+    					\item Encoding to IrisCodes
+    					\item Matching by Hamming distances  		
+    					\item The distribution of the Codes		
+    					\item Identifying by threshhold
+    					\item Or verifying
+    					\end{itemize}		 					
+    					\end{itemize}		
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.5 Texture Feature}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{What is texture feature (P6:18)? Why we can use texture feature in iris recognition (P9:30)?}
+    			\onslide<2> \inpdfl{6}{9} %P6-18
+    			\onslide<3> \inpdfc{9}{30}
+    			\onslide<4>
+    				\begin{itemize}
+    				\item Texture features		
+    					\begin{itemize}
+    					\item Repeating similar patterns
+    					\end{itemize}		
+    				\item Texture features in Iris	
+    					\begin{itemize}
+    					\item Trabecula meshwork is a kind of texture in a radial distribution.
+    					\end{itemize}		
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 2: Daugman's Method}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{There are four steps in the Daugman's approach (P9:31-35). The third step generates IrisCode with 512 bytes. If 2 bits represent a feature, please compute the total number of features.}
+    			\onslide<2> \inpdfc{9}{31}
+    			\onslide<3> \inpdfc{9}{32}
+    			\onslide<4> \inpdfc{9}{33}
+    			\onslide<5> \inpdfc{9}{34}
+    			\onslide<6> \inpdfc{9}{35}
+    			\onslide<7>
+    				\begin{itemize}
+    				\item The IrisCode is $512$ bytes
+    				\item then total bits is $512\times 8$ bits
+    				\item and two bits represent one feature
+    				\item so the total number of features should be $\frac{512\times 8}{2} = 2048$
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 3: Seperating IrisCodes}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{In P9:38, an example of iris verification distributions is given. Notice that Hamming distance is defined to measure the dissimilarity of two IrisCodes. Which value in the figure can separate two parts, authentics and imposters? If the dissimilarity between two IrisCodes is taken as 0.5, can you say they are identical? How about the comparison result when the dissimilarity is 0.2? What conclusion will you get from the hamming distance used to compute dissimilarity of IrisCodes?}
+    			\onslide<2> \inpdfc{9}{38}
+    			The threshold should be 0.38. Hamming distance of 0.5 should not be from the same eye and 0.2 should.
+    			\onslide<3>
+    				\begin{itemize}
+    				\item Hamming distance
+    					\begin{itemize}
+    					\item The larger the hamming distance, the further two candidates seperate away.
+    					\item Imposters tend to be larger the hamming distance; the authentics tend to be smaller.
+    					\end{itemize}		
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 4: Fourier Transforms of Irises}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{P9:25 shows the corresponding Fourier transforms of iris images with different quality. Please give the property of Fourier transform of good quality iris images.}
+    			\onslide<2> \inpdfc{9}{25} 
+    			The distribution should be even.\qed	
+    			\end{overprint}
+    		\end{frame}   
+    		
+    \subsection{Problem 5: Another pattern of Iris}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{In Daugman's approach iris is regarded as a circular pattern (P9:31-34). In fact we can also take the iris as other pattern, as shown in P9:27. Please try to design the corresponding scheme.}
+    			\onslide<2> \inpdfc{9}{31} 
+    			\onslide<3> \inpdfc{9}{32} 
+    			\onslide<4> \inpdfc{9}{33} 
+    			\onslide<5> \inpdfc{9}{34} 
+    			\onslide<6> \inpdfc{9}{27} 
+    			\onslide<7>
+    				\begin{itemize}
+    				\item Scheme		
+    					\begin{itemize}
+    					\item Generally the procedure should be the same
+    					\item Instead of eight annular sectors, we divide the Iris to eight bar-like sectors
+    					\item and other procedures should be the same
+    					\item To divide the iris to eight sectors, to use Gabor filters to encode the image to IrisCode, then to match the IrisCode by Hamming distances.
+    					\end{itemize}		
+    				\item Advantages		
+    					\begin{itemize}
+    					\item Horizontal localization error could be adjusted along the horizantal direction.
+    					\end{itemize}	
+    				\item Disadvantages		
+    					\begin{itemize}
+    					\item The spreading-out of the image will take in more noises or even fake patterns.
+    					\end{itemize}	
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}  
+
+
+
+    \begin{frame}<handout:0>[c]{Q \& A}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

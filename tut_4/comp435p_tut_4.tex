@@ -1,0 +1,240 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 4}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{February 13, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 6.5in 1.4in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 1.4in 1.4in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.7\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+
+    \subsection{Problem 1: Answer the questions}
+    
+    		\begin{frame}[c]{Problem 1.1 scatter matrix, eigenvector and eigenvalue}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{What is the scatter matrix (P5:21)? Understand what about eigenvector and eigenvalue as well as their functions? (P5:22)}
+    				\onslide<2> \inpdfu{5}{11} %P5-21
+    				\onslide<3> \inpdfl{5}{11} %p5-22
+    				\onslide<4> $\;$\\
+\alert{\href{http://www.google.com.hk/search?gcx=c&sourceid=chrome&ie=UTF-8&q=eigenvalue}{''Detailed links(click)''}}\\	\alert{\href{http://books.google.com.hk/books/about/Principal_component_analysis.html?id=_olByCrhjwIC&redir_esc=y
+}{''PCA books(click)''}}\\
+							\alert{kolho3.tiera.ru}    		
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[c]{Problem 1.2 Eigenface}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Understand the PCA application to facial recognition: Eigenface. (P5:26-30)}
+    				\onslide<2> \inpdfl{5}{13} %P5-26
+    				\onslide<3> \inpdfu{5}{14} %p5-27
+    				\onslide<4> \inpdfl{5}{14} %p5-28
+    				\onslide<5> \inpdfu{5}{15} %p5-29
+    				\onslide<6> \inpdfl{5}{15} %p5-30
+    				\qed
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[c]{Problem 1.3 PCA and LDA}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Compare two StatPR techniques, PCA and LDA (P5:13) and point out their main difference (P5:42-45)}
+    				\onslide<2> \inpdfu{5}{7} %p5-13    				
+    				\onslide<3> \inpdfl{5}{21} %p5-42
+    				\onslide<4> \inpdfu{5}{22} %p5-43
+    				\onslide<5> \inpdfl{5}{22} %p5-44
+    				\onslide<6> \inpdfu{5}{23} %p5-45
+    				\qed
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[c]{Problem 1.4 LDA}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Linear discrimination analysis (LDA) is introduced in P5:37-40. Please understand the two steps in P5:37 and compare within-class scatter matrix with between-class scatter matrix.}
+    				\onslide<2> \inpdfu{5}{19} %p5-37
+    				\onslide<3> \inpdfl{5}{19} %p5-38
+    				\onslide<4> \inpdfu{5}{20} %p5-39
+    				\onslide<5> \inpdfl{5}{20} %p5-40
+    				\qed
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 2: Three PR Approaches}
+    
+    		\begin{frame}[c]{\subsecname}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{There are three PR approaches: StatPR, SyatPR and NN. What difference between them (P5:4-10)? Based on your knowledge, can you give a simple application for each approach?}
+    				\onslide<2> \inpdfl{5}{2} %p5-4
+    				\onslide<3> \inpdfu{5}{3} %p5-5
+    				\onslide<4> \inpdfl{5}{3} %p5-6
+    				\onslide<5> \inpdfu{5}{4} %p5-7
+    				\onslide<6> \inpdfl{5}{4} %p5-8
+    				\onslide<7> \inpdfu{5}{5} %p5-9
+    				\onslide<8> \inpdfl{5}{5} %p5-10
+    				\onslide<9>
+    					\begin{itemize}
+    						\item
+The properties of the patterns (entities) are different: 
+								\item
+For statistical PR the patterns can be extracted a set of features and there is an underlying statistical model for the generation of theses patterns.
+								\item
+For syntactic PR the patterns should contain structural or relational information and the structure of an entity is paramount. 
+								\item
+For NN, the patterns are stored in the Network, and it can't be seen.
+  						\end{itemize}
+    				\onslide<10> 
+    					\begin{itemize}
+								\item
+The methods are different:
+								\item
+  For statistical PR the problems are solved by using statistical theory.
+								\item
+  For syntactic PR the classification can be accomplished by defining suitable and distinct grammars that reflect the structure of each pattern class.
+								\item
+  For NN, the result is learned by the neurons in the network.
+  						\end{itemize}
+    				\onslide<11> $\;$\\
+    				\begin{center}
+            Examples\\           
+            \begin{tabular}{|c|c|}
+                    \hline
+                    Approaches & Examples        \\\hline
+                    StatPR     & Face, Palmprint \\
+                    SyatPR     & Disease    \\
+                    NN         & Motor Control   \\\hline
+            \end{tabular}
+            \end{center}
+            \qed
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 3: StatPR and SyatPR}
+    
+    		\begin{frame}[c]{\subsecname}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Please check the examples of PR approaches in P5:10. Try to analyze the character ``H'' by statistical PR approach and structural PR approach.}
+    				\onslide<2> \inpdfl{5}{5} %p5-10
+    				\onslide<3> $\;$\\
+    					\begin{block}{StatPR approach}
+    						The feature set:(intersections, -, |, holes)\\
+    						$ x=[2, 1, 4, 0] $
+    					\end{block}
+    					\begin{block}{SyntPR approach}
+    						Primitives and relations:$\uparrow + \uparrow \alert{\rightrightarrows} \rightarrow \alert{\rightrightarrows} \uparrow + \uparrow $
+    					\end{block}
+    					\qed
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 4: PCA}
+    
+    		\begin{frame}[c]{\subsecname}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{From P5:19-25, PCA method given by using image data is defined, which projects an image space with 644 dimension into 6 dimension eigenvector space. Please understand each step.}
+    				\onslide<2> \inpdfu{5}{10} %p5-19
+    				\onslide<3> \inpdfl{5}{10} %p5-20
+    				\onslide<4> \inpdfu{5}{11} %p5-21
+    				\onslide<5> \inpdfl{5}{11} %p5-22
+    				\onslide<6> \inpdfu{5}{12} %p5-23
+    				\onslide<7> \inpdfl{5}{12} %p5-24
+    				\onslide<8> \inpdfu{5}{13} %p5-25
+    				\qed
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 5: Three PR Approaches}
+    
+    		\begin{frame}[c]{\subsecname}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{According to the figure in P5:24, how to find its minimum $\lambda$ if we hope to get $\gamma_{\lambda}>60$?}
+    				\onslide<2> \inpdfl{5}{12} %p5-24
+    				When $\lambda=2$ the $\gamma_{\lambda}<60$When \alert{$\lambda=3$} the $\gamma_{\lambda}>60$, so $\lambda=3$ is what we want.\qed
+    			\end{overprint}
+    		\end{frame}
+
+    \begin{frame}<handout:0>[c]{\secname}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

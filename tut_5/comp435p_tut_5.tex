@@ -1,0 +1,239 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 5}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{February 20, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 6.5in 1.4in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 1.4in 1.4in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.7\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+
+    \subsection{Problem 1: Answer The Questions}
+    
+    		\begin{frame}[t]{Problem 1.1 PR system}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Explain about PR system using the figure in P6:4}
+    				\onslide<2> \inpdfl{6}{2} %P6-4
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.2 Decision Function}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{What is the definition about Decision Function (P6:4-9)}
+    				\onslide<2> \inpdfl{6}{2} %P6-4
+    				\onslide<3> \inpdfu{6}{3} %P6-5  
+    				\onslide<4> \inpdfl{6}{3} %P6-6  
+    				\onslide<5> \inpdfu{6}{4} %P6-7  
+    				\onslide<6> \inpdfl{6}{4} %P6-8  
+    				\onslide<7> \inpdfu{6}{5} %P6-9
+    				The seperating line or the seperating hyperplane on different conditions.		
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.3 time domain and frequency domain}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Why we need the frequency domain for feature extraction (P6:18)? What difference between time(spatial) domain and frequency domain? (P6:20-22)}
+    				\onslide<2> \inpdfl{6}{9} %P6-18
+    				\alert{To extract features like irregular texture pattern in images}
+    				\onslide<3> \inpdfl{6}{10} %P6-20
+    				\onslide<4> \inpdfu{6}{11} %P6-21 
+    				\onslide<5> \inpdfl{6}{11} %P6-22		
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.4 Fourier and Gabor}
+    			\begin{overprint}
+    				\onslide<1>
+    			\emph{Understand two frequency transforms, Fourier transform (P6:25-28) and Gabor transform (P6:40)}
+    				\onslide<2> \inpdfu{6}{13} %P6-25
+    				\onslide<3> \inpdfl{6}{13} %P6-26
+    				\onslide<4> \inpdfu{6}{14} %P6-27 
+    				\onslide<5> \inpdfl{6}{14} %P6-28
+    				\onslide<6> \inpdfl{6}{20} %P6-40	
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 2: Indeterminate Region}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{Note that there are some regions in which a decision cannot be reached, which are labeled as IR (Indeterminate Region)(see P6:6). In these regions either more than one decision functions are greater than zero or all decision functions are less than zero. There are three functions which have been defined In P6:9, including d1(x), d2(x) and d3(x). Which regions can be taken as IR?}
+    				\onslide<2> \inpdfl{6}{3} %P6-6
+    				\onslide<3> \inpdfu{6}{5} %P6-9
+    					d1(x), d2(x) and d3(x): 000, 011, 101, 110, \alert{111}  		
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 3: Classifier}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{There are two spaces, Measurement Space and Decision Space, which are given in P6:5. Pattern classification is defined to map measurement features to one of the classes. Could you design a simple classifier (see P4:36 and P4:39) to implement the given function? }
+    				\onslide<2> \inpdfu{6}{3} %P6-5	
+    				\onslide<3> \inpdfl{4}{18} %P4-36	
+    				\onslide<4> \inpdfu{4}{20} %P4-39
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 4: Syntactic PR}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{An example for Syntactic PR is given in P6:16 by the written (English) language, where a paragraph may be decomposed into sentences $\rightarrow$ words $\rightarrow$ letters $\rightarrow$ strokes. Consider the sentence: ``The powerful computer could do many things for us.'' produced by using your sequence of ``rewriting'' rules. }
+    				\onslide<2> \inpdfl{6}{8} %P6-16
+    				\onslide<3> 
+    					\begin{itemize}
+    						\item
+    						$<sentence>$
+    						\item $<noun\ phrase><verb\ phrase><preposition\ phrase>$
+    						\item $<noun\ phrase><verb\ phrase><noun\ phrase><preposition\ phrase>$
+    						\item $<artical><adjective><noun><auxiliary\ verb><main\ verb><adjective><noun><preposition><pronoun>$
+    						\item $the\ <adjective><noun><auxiliary\ verb><main\ verb><adjective><noun><preposition><pronoun>$
+    						\item $the\ powerful\ <noun><auxiliary\ verb><main\ verb><adjective><noun><preposition><pronoun>$
+							\end{itemize}
+    				\onslide<4> 
+    					\begin{itemize}
+    						\item $the\ powerful\ computer\ <auxiliary\ verb><main\ verb><adjective><noun><preposition><pronoun>$
+    						\item $the\ powerful\ computer\ could\ <main\ verb><adjective><noun><preposition><pronoun>$
+    						\item $the\ powerful\ computer\ could\ do\ <adjective><noun><preposition><pronoun>$
+    						\item $the\ powerful\ computer\ could\ do\ many\ <noun><preposition><pronoun>$
+    						\item $the\ powerful\ computer\ could\ do\ many\ things\ <preposition><pronoun>$
+    						\item $the\ powerful\ computer\ could\ do\ many\ things\ for\ <pronoun>$
+    						\item $the\ powerful\ computer\ could\ do\ many\ things\ for\ us$\qed	
+							\end{itemize}								
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 5: Frequency Transform}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{Frequency transform can be applied to many different applications (P6:24, 35-38, 41-45). Could you consider a new application using frequency transform in image processing and pattern recognition?}
+    				\onslide<2> \inpdfl{6}{12} %P6-24
+    				\onslide<3> \inpdfu{6}{18} %P6-35
+    				\onslide<4> \inpdfl{6}{18} %P6-36
+    				\onslide<5> \inpdfu{6}{19} %P6-37
+    				\onslide<6> \inpdfl{6}{19} %P6-38
+    				\onslide<7> \inpdfu{6}{21} %P6-41
+    				\onslide<8> \inpdfl{6}{21} %P6-42
+    				\onslide<9> \inpdfu{6}{22} %P6-43
+    				\onslide<10> \inpdfl{6}{22} %P6-44
+    				\onslide<11> \inpdfu{6}{23} %P6-45
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+
+    \subsection{Problem 6: Frequency Transform}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{What results could you obtain from the examples using 2D Fourier Transforms in P6:29-34?}
+    				\onslide<2> \inpdfu{6}{15} %P6-29
+    				constant frequency - dot
+    				\onslide<3> \inpdfl{6}{15} %P6-30
+    				directions of the frequencys
+    				\onslide<4> \inpdfu{6}{16} %P6-31
+    				lines gets resposes in their orthogonal directions
+    				\onslide<5> \inpdfl{6}{16} %P6-32
+    				\onslide<6> \inpdfu{6}{17} %P6-33
+    				\onslide<7> \inpdfl{6}{17} %P6-34
+    				frequency resolution
+							\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+
+
+    \begin{frame}<handout:0>[c]{\secname}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

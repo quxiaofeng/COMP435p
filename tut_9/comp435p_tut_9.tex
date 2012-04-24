@@ -1,0 +1,194 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 9}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{March 19, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 6.5in 1.4in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 1.4in 1.4in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfc}[2]{\begin{figure}\centering\includegraphics[trim=0.15in 0.2in 0.15in 0.2in, clip, height=0.75\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.55\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+
+    \subsection{Problem 1: Answer The Questions}
+    
+    		\begin{frame}[t]{Problem 1.1 Voice biometrics}    		
+    			\begin{overprint}
+    			\onslide<1>
+    				\emph{Understand the difference between voice biometrics and speech recognition? (P11:10). What is text-dependent and text-independent speaker ID? (P11:11).}
+    			\onslide<2> \inpdfc{11}{10}
+    			\onslide<3> \inpdfc{11}{11}
+    			\onslide<4>
+    				\begin{itemize}
+    				\item Differences
+    					\begin{itemize}
+    					\item Voice biometrics focuses on the identity of the speaker, different content of key words could be used; speech recognition focuses on the content of the speech, no matter who is speaking.
+    					\end{itemize}		
+    				\item Text-dependent speaker ID
+    					\begin{itemize}
+    					\item The utterance of key words or sentences are the same for both training and recognition.
+    					\end{itemize}				
+    				\item Text-independentspeaker ID
+    					\begin{itemize}
+    					\item To verify the identities of the people by the way they speak. 
+    					\end{itemize}		
+    				\end{itemize}\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.2 Signature recognition}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Generally speaking, on-line signature recognition is more accurate than off-line. Can you give some reasons? (P10:6-7)}
+    			\onslide<2> \inpdfc{10}{6}
+    			\onslide<3> \inpdfc{10}{7}
+    			\onslide<4>
+    				\begin{itemize}
+    				\item Advantages of online solution
+    					\begin{itemize}
+    					\item pressure
+    					\item speed, acceleration
+    					\end{itemize}		
+    				\end{itemize}\qed		
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.3 Pros and cons}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{What are the advantages and disadvantages of voice and signature biometrics, respectively? (P10: 34; P11: 27)}
+    			\onslide<2> \inpdfc{10}{34}
+    			\onslide<3> \inpdfc{11}{27}\qed	
+    			\end{overprint}
+    		\end{frame}
+    
+    		\begin{frame}[t]{Problem 1.4 Two features of signature verification}    		
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Show both global and local features for on-line signature verification.  (P10: 23)}
+    			\onslide<2> \inpdfc{10}{23}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 2: Feature set of voice identification}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Features used by voice identification include cadence, frequency, pitch \& tone of an individual's voice. In P11:12 the models for two speakers saying the same vowel are given. Please try to define a minimum feature set to divide the two models.}
+    			\onslide<2> \inpdfc{11}{12}
+    			\alert{(frequency, magnitude)}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 3: Directional frontier}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Directional frontier (DF) is a directional grouping of the contour pixels. In P10:25, there is an example of DF curve characterization. Please give the corresponding feature set.}
+    			\onslide<2> \inpdfc{10}{25}
+    			\onslide<3>
+    				\begin{itemize}
+    				\item end points	
+    				\item angle (major orientation)
+    				\item skew (line of best-fit)
+    				\item via points
+    				\item spline curve
+    				\item middle point
+    				\item number of points
+    				\end{itemize}\qed	
+    			\end{overprint}
+    		\end{frame}
+    		
+    \subsection{Problem 4: Features of signature}
+    
+    		\begin{frame}[t]{\subsecname}
+    			\begin{overprint}
+    			\onslide<1>
+    			\emph{Please write down your signature. Based on the definitions given in P10:11-14, please find the following features: Upper/lower envelop, vertical/horizontal projection, geometric and topological features. }
+    			\onslide<2> \inpdfc{10}{11} 
+    			\onslide<3> \inpdfc{10}{12} 
+    			\onslide<4> \inpdfc{10}{13} 
+    			\onslide<5> \inpdfc{10}{14}\qed	
+    			\end{overprint}
+    		\end{frame}   
+    		
+    \begin{frame}<handout:0>[c]{Q \& A}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

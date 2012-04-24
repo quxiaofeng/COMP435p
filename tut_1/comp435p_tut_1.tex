@@ -1,0 +1,335 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 1}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{January 16, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inupdf}[2]{\begin{figure}\centering\includegraphics[trim=1.6in 6.5in 1.6in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inlpdf}[2]{\begin{figure}\centering\includegraphics[trim=1.6in 1.4in 1.6in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.7\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+
+\section{Problems}
+    \subsection{Problem 1: Answer the following questions}
+        \begin{frame}[c]{Problem 1.a}    		
+    				\begin{overprint}
+    				\onslide<1>
+            		\emph{Understand the reasons why biometrics security in e-world.}
+            \onslide<2>%p1-4
+                \inlpdf{1}{2}
+            \onslide<3>%p1-5
+                \inupdf{1}{3}
+            \onslide<4>%p1-6
+                \inlpdf{1}{3}
+            \onslide<5>%p1-7
+                \inupdf{1}{4}
+            \onslide<6>%p1-8
+                \inlpdf{1}{4}
+            \onslide<7>%p1-9
+                \inupdf{1}{5}
+            \onslide<8>%p1-10
+                \inlpdf{1}{5}
+            \onslide<9>%p1-11
+                \inupdf{1}{6}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.b}
+    				\begin{overprint}
+    				\onslide<1>
+            	\emph{What is biometrics?}
+            \onslide<2>%p1-13
+                \inupdf{1}{7}
+            \onslide<3>%p1-14
+                \inlpdf{1}{7}
+            \onslide<4>%p2-3
+                \inupdf{2}{2}
+            \onslide<5>%p2-4
+                \inlpdf{2}{2}
+            \onslide<6>%p2-5
+                \inupdf{2}{3}
+            \onslide<7>%p2-6
+                \inlpdf{2}{3}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        
+        
+        
+        
+        \begin{frame}[c]{Problem 1.c}
+    				\begin{overprint}
+    				\onslide<1>
+            	\emph{Understand two types of biometrics and give some examples respectively.}
+            \onslide<2>%p2-7
+                \inupdf{2}{4}
+            \onslide<3>%p2-8
+                \inlpdf{2}{4}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        
+        
+        \begin{frame}[c]{Problem 1.d}
+    				\begin{overprint}
+    				\onslide<1>
+            	\emph{The definition of enrollment, template and matching in a biometrics system.}
+            \onslide<2>%p2-11
+                \inupdf{2}{6}
+            \onslide<3>%p2-12
+                \inlpdf{2}{6}
+            \onslide<4>%p2-13
+                \inupdf{2}{7}\qed
+            \end{overprint}            
+        \end{frame}
+        
+        
+        
+        \begin{frame}[c]{Problem 1.e}
+    				\begin{overprint}
+    				\onslide<1>
+            	\emph{What are the requirements of a biometric feature used for authentication purposes? }
+            \onslide<2>%p2-20
+                \inlpdf{2}{10}
+            \onslide<3>%p2-21
+                \inupdf{2}{11}
+            \onslide<4>%p2-22
+                \inlpdf{2}{11}
+            \onslide<5>%p2-23
+                \inupdf{2}{12}
+            \onslide<6>%p2-24
+                \inlpdf{2}{12}
+            \onslide<7>%p2-25
+                \inupdf{2}{13}
+            \onslide<8>%p2-26
+                \inlpdf{2}{13}
+            \onslide<9>%p2-27
+                \inupdf{2}{14}
+            \onslide<10>%p2-28
+                \inlpdf{2}{14}\qed
+            \end{overprint}
+        \end{frame}
+        
+        
+        
+        \begin{frame}[c]{Problem 1.f}
+    				\begin{overprint}
+    				\onslide<1>
+            \emph{Which difference between identification and verification?}
+            \onslide<2>%p2-35
+                \inupdf{2}{18}
+            \onslide<3>%p2-36
+                \inlpdf{2}{18}\qed
+            \end{overprint}            
+        \end{frame}
+
+    \subsection{Problem 2: Biometric authentication system}
+        \begin{frame}[c]{\subsecname}
+    				\begin{overprint}
+    				\onslide<1>
+            \emph{What makes up a biometric authentication system? Please give an example to explain them.}
+            \onslide<2>%p2-31
+                \inupdf{2}{16}
+            \onslide<3>%p2-32
+                \inlpdf{2}{16}
+            \onslide<4>%p2-33
+                \inupdf{2}{17}
+            \onslide<5>%p2-34
+                \inlpdf{2}{17}
+            \end{overprint}   
+        \end{frame}
+        
+        
+        \begin{frame}[c]{A palmprint biometics system}
+            \inpng{p2_example}  
+        \end{frame}
+
+    \subsection{Problem 3: Compare}
+        \begin{frame}[c]{\subsecname}
+    				\begin{overprint}
+    				\onslide<1>
+            \emph{Compare enrollment mode and authentication/verification mode.}
+            \onslide<2>%p2-37
+                \inupdf{2}{19}
+            \onslide<3>%p2-38
+                \inlpdf{2}{19}\qed
+            \end{overprint}   
+        \end{frame}
+
+    \subsection{Problem 4: FRR, FAR, EER, Crossover, FTE, ATV and ROC}
+        \begin{frame}[c]{\subsecname}
+            \emph{What are FRR, FAR, EER, Crossover, FTE, ATV and ROC? Now there are two FAR-FRR diagrams and one ROC curve. Give the EER respectively. When FRR=0.1, how about FAR and Crossover, respectively? If the corresponding FTE are all equal to 0.05, then how about ATV? }
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            \onslide<1>%p2-17
+                \inupdf{2}{9}
+            \onslide<2>%p2-18
+                \inlpdf{2}{9}
+            \onslide<3>%p2-19
+                \inupdf{2}{10}
+            \end{overprint}   
+        \end{frame}       
+        
+        \begin{frame}[c]{\subsecname.a}
+            \begin{overprint}
+            \onslide<1>
+                \inpng{p4_1}
+            \onslide<2>
+                \begin{align*}
+             EER=&0.06\\
+             FAR=&0.03\\
+             Crossover=&1:round(1/EER)=\frac{1}{17}\\
+             ATV=&(1-FTE)(1-FRR)=(1-0.05)\times(1-0.1)=0.855
+                \end{align*}
+            \end{overprint}   
+        \end{frame}       
+        
+        \begin{frame}[c]{\subsecname.b}
+            \begin{overprint}
+            \onslide<1>
+                \inpng{p4_2}
+            \onslide<2>
+                \begin{align*}
+             EER=&0.09\\
+             FAR=&0.07\\
+             Crossover=&1:round(1/EER)=\frac{1}{11}\\
+             ATV=&(1-FTE)(1-FRR)=(1-0.05)\times(1-0.1)=0.855
+                \end{align*}
+            \end{overprint}   
+        \end{frame}       
+        
+        \begin{frame}[c]{\subsecname.c}
+            \begin{overprint}
+            \onslide<1>
+                \inpng{p4_3}
+            \onslide<2>
+                \begin{align*}
+             EER=&0.08\\
+             FAR=&0.05\\
+             Crossover=&1:round(1/EER)=\frac{1}{13}\\
+             ATV=&(1-FTE)(1-FRR)=(1-0.05)\times(1-0.1)=0.855
+                \end{align*}\qed
+            \end{overprint}   
+        \end{frame}
+
+    \subsection{Problem 5: Evaluate FAR, FRR and ATV}
+        \begin{frame}[c]{\subsecname}
+            \emph{100 individuals try to use a biometric system.  There are 38 genuine individuals are accepted, 8 genuine individuals rejected, 44 imposter rejected and 10 imposter accepted. Please evaluate the biometric system by giving the FAR and FRR. If FTE=0.05, then how about ATV?  }
+        \end{frame}       
+        
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}
+            \onslide<1>
+                \inupdf{2}{8}
+            \onslide<2>
+                \inlpdf{2}{9}
+            \onslide<3>            
+            \begin{center}
+            \begin{tabular}{lll}
+                    \hline%\toprule%
+                    Individuals     & Accepted   & Rejected \\\hline%\otoprule%
+                    Genuine         & $I_1$      & $I_2$    \\
+                    Imposter        & $I_4$      & $I_3$    \\\hline%\bottomrule
+            \end{tabular}
+            \end{center}
+                \begin{align*}
+             FAR=&\frac{I_4}{I_3+I_4}\\
+             FRR=&\frac{I_2}{I_1+I_2}
+                \end{align*}
+            \onslide<4>            
+            \begin{center}
+            \begin{tabular}{lll}
+                    \hline%\toprule%
+                    Individuals     & Accepted   & Rejected \\\hline%\otoprule%
+                    Genuine         & 38         & 8        \\
+                    Imposter        & 10         & 44       \\\hline%\bottomrule
+            \end{tabular}
+            \end{center}
+                \begin{align*}
+             FAR=&\frac{I_4}{I_3+I_4}=\frac{10}{44+10}=0.19\\
+             FRR=&\frac{I_2}{I_1+I_2}=\frac{8}{38+8}=0.17\\
+             ATV=&(1-FTE)(1-FRR)=(1-0.05)\times(1-0.17)=0.79
+                \end{align*}\qed
+            \end{overprint}   
+        \end{frame}
+
+    
+    \begin{frame}<handout:0>[c]{\secname}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+

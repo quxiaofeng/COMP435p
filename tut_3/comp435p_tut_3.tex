@@ -1,0 +1,216 @@
+\documentclass[
+        %handout,
+        %draft,
+        ]{beamer}
+\usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
+\usepackage{color,multicol}
+\usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
+\usepackage{picins}
+%\usepackage{emp}
+%\usepackage{pstricks,pst-plot}
+\usepackage{pgf}
+\usepackage{movie15}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings,bera}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{60,179,113}
+\lstset{language=C,
+keywordstyle=\color{keywords},
+commentstyle=\color{comments}\emph}
+\hypersetup{
+    pdfpagemode=FullScreen, % show in full screen?
+}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% reference entry
+\usepackage{bibentry, natbib}
+% reference style
+\bibliographystyle{IEEEtran} 
+%reference lib
+\nobibliography{refs}
+
+\usepackage[
+	compress,
+	%minimal,
+	%nonav,
+	red,
+	%gold,
+	%numbers,
+	%nologo,
+	polyu,
+	]{beamerthemeHongKong}
+\usefonttheme[professionalfonts]{serif}
+
+\title{Tutorial 3}
+\author[COMP435p]{Qu Xiaofeng\texorpdfstring{, Teaching Asistant\\\tiny{quxiaofeng.at.polyu@gmail.com}}{}}
+\institute{COMP435p\\Biometrics Authentication}
+\date{February 6, 2012}
+
+
+
+\begin{document}
+
+% include pdf page
+\newcommand{\inpdfu}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 6.5in 1.4in 1.4in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfl}[2]{\begin{figure}\centering\includegraphics[trim=1.4in 1.4in 1.4in 6.5in, clip, height=0.7\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+\newcommand{\inpdfc}[2]{\begin{figure}\centering\includegraphics[trim=0.15in 0.2in 0.15in 0.2in, clip, height=0.75\textheight, page={#2}]{im/lecture_#1}\end{figure}}
+% include png images
+\newcommand{\inpng}[1]{\begin{figure}\centering\includegraphics[height=0.7\textheight]{im/#1}\end{figure}}
+
+\frame{\titlepage}
+
+\section*{Table of Contents}
+
+    \begin{frame}{\secname}
+        \tableofcontents
+    \end{frame}
+
+\AtBeginSubsection[] {
+    \begin{frame}<handout:0>{Outline}
+        \tableofcontents[current,currentsubsection]
+    \end{frame}
+}
+
+
+
+\section{Problems}
+    \subsection{Problem 1: Answer the questions}
+        \begin{frame}[c]{Problem 1.a}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{What is ``Pattern''? According to its definition in (P4:4-7), could you list some patterns in your daily life?}           
+            	\onslide<2> \inpdfl{4}{2} %p4-4
+            	\onslide<3> \inpdfu{4}{3} %p4-5
+            	\onslide<4> \inpdfl{4}{3} %p4-6
+            	\onslide<5> \inpdfu{4}{4} %p4-7
+            		\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.b}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{``Pattern Recognition (PR)'' is defined in P4:8. Could you give some PR samples and tell which features you use?}       
+            	\onslide<2> \inpdfl{4}{4} %p4-8
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c,shrink]{Pattern Recognition Example}
+            \begin{block}{Stories of the Soap Box and the Fan}
+One very big cosmetics company in Japan received a complaint that a consumer had bought a soap box that was empty. Management of the company immediately traced the problem to the assembly line, that conveyed all the packaged boxes of soap to the delivery department. For some reason, one soap box went through the assembly line empty. 
+
+Management asked its engineers to solve the problem. The engineers worked hard on the first solution that came to mind, using X-ray technology. They devised an X-ray machine with high-resolution monitors. Two workers were deployed full-time to monitor all the soap boxes that passed through the line to make sure they were not empty. They managed to solve the problem but it was an expensive solution. 
+\end{block}
+        \end{frame}
+        \begin{frame}[c,shrink]{Pattern Recognition Example}
+            \begin{block}{Stories of the Soap Box and the fan}
+Then one day, a new employee joined the company. He had previously worked in a small low-tech company. When posed with the same problem, he did not think of the X-ray machine. Instead, he bought a strong industrial electric fan and placed it facing the assembly line. He switched on the fan, and as soap boxes on the conveyor belt passed the fan, the empty ones were simply blown off the line. It was an effective and cheaper solution.
+\end{block}\qed
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.c}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{In P4:11-13, a PR system is given. Please understand each function in the system.}
+            	\onslide<2> \inpdfu{4}{6} %p4-11
+            	\onslide<3> \inpdfl{4}{6} %p4-12
+            	\onslide<4> \inpdfu{4}{7} %p4-13
+            		\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.d}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{Understand the definitions related to PR: Classification, Recognition, Description, Pattern Class and Preprocessing (P4:14-15). Why classification and recognition require the different classes, c and c+1, respectively.}        
+            	\onslide<2> \inpdfl{4}{7} %p4-14
+            	\onslide<3> \inpdfu{4}{8} %p4-15
+            		\qed
+            \end{overprint}            
+        \end{frame}
+        
+        \begin{frame}[c]{Problem 1.e}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{What is correlation between two vectors, x and y? Please use this definition in the function $||x-m_k||$ (P4:34). How about orthogonal or uncorrelated between two vectors?}
+            	\onslide<2> 
+            		\alert{Maximum when x and y point in the same direction}
+            		\inpdfu{4}{19} %p4-37
+            	\onslide<3> \inpdfl{4}{17} %p4-34
+            		\qed
+            \end{overprint}            
+        \end{frame}
+        
+    \subsection{Problem 2: Pattern extraction}
+        \begin{frame}[c]{\subsecname}
+            \emph{A 3-D example for pattern extraction is defined in P4: 16-18. There are four kinds of features are extracted. Please select these features according to some guidelines (P4: 27-28) to classify the given six objects.}
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname terms}
+            \begin{overprint}
+            	\onslide<1> \inpdfl{4}{8} %p4-16
+            	\onslide<2> \inpdfu{4}{9} %p4-17
+            	\onslide<3> \inpdfl{4}{9} %p4-18
+            	\onslide<4> \inpdfu{4}{14} %p4-27
+            	\onslide<5> \inpdfl{4}{14} %p4-28\\
+            		One possible selection: Edge+Symmetry+Axis\qed
+            \end{overprint}   
+        \end{frame}
+        
+    \subsection{Problem 3: Minimum-error classifier}
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}            
+            	\onslide<1>
+            \emph{A minimum-error classifier based on $\lVert x - m_k \rVert$ is defined in P4:34. How to get a linear discriminant function, $g(x) = m' x - 0.5 \times \lVert m \rVert$ in P4:39? Which difference between the following two classifiers using the approaches mentioned above.}
+            	\onslide<2>
+            	To find a k, which will get $Min(\|x-m_k\|)$ is equivalent to get the $Min(\|x-m_k\|^2)$
+                \begin{align*}
+                    Min(\|x-m_k\|^2)   =&(x-m_k)'(x-m_k)\\
+                                       =&x'x-x'm_k-m_k'x+m_k'm_k\\
+                                       =&x'x-2m_k'x+\|m_k\|^2\\
+                                       =&x'x-2(m_k'x-0.5\|m_k\|^2)\\
+                    equivalent\ to\     &Max(m_k'x-0.5\|m_k\|^2)\\
+                    so\ g(x)           =&m' x - 0.5 \times \lVert m \rVert^2   
+                \end{align*}          
+            	\onslide<3> 
+            		\alert{Maximum when x and y point in the same direction}
+            		\inpdfu{4}{19} %p4-37
+            	\onslide<4> \inpdfl{4}{17} %p4-34
+            		\qed
+            \end{overprint}       
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}
+            	\onslide<1> \inpdfl{4}{17}%p4-34
+            	\onslide<2> \inpdfu{4}{20}%p4-39
+            	\qed
+            \end{overprint}   
+        \end{frame}
+        
+    \subsection{Problem 4: Classify}
+        \begin{frame}[c]{\subsecname}
+            \emph{In P4:33 there are two templates (``D'' and ``O'') and ten input samples, each five. Please classify the third input example in the ``D'' row by using the maximum correlation approach and minimum error approach, respectively.}
+        \end{frame}
+        
+        \begin{frame}[c]{\subsecname}
+            \begin{overprint}
+              \onslide<1> \inpdfc{4_2}{33}%p4-33
+            	\onslide<2> For Maximum Correlation Approach: ``D''-Input: 82/90=91\% and ``O''-Input: 66/90=73\%) \qed
+            \end{overprint}   
+        \end{frame}
+
+        
+    \begin{frame}<handout:0>[c]{\secname}
+        \centerline{\Large{Any questions?}}
+    \end{frame}
+    
+    
+    
+\end{document}
+
+
+
