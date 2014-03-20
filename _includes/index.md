@@ -1,6 +1,6 @@
 ### Tutorial 7 of COMP435p: Biometrics Authentication ###
 
-by [Qu Xiaofeng](http://www.quxiaofeng.me), [csxfqu@comp.polyu.edu.hk](csxfqu@comp.polyu.edu.hk) 
+by [Qu Xiaofeng](http://www.quxiaofeng.me), [csxfqu@comp.polyu.edu.hk](mailto:csxfqu@comp.polyu.edu.hk?Subject=COMP435p%20tutorial%20question) 
 
 ---
 
