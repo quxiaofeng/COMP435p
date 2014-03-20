@@ -37,7 +37,7 @@ by [Qu Xiaofeng](http://www.quxiaofeng.me), [csxfqu@comp.polyu.edu.hk](mailto:cs
 
 ### In *[P8:31](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/Lecture%208.pdf)* there is a training set including 27 facial images to get eigenfaces. Can you give the value of k according to the training result (eigenfaces)?  *(<font color=darkred>9</font>)* ###
 
-![](http://i.imgur.com/fcfqbPw.jpg)
+[![](http://i.imgur.com/fcfqbPw.jpg)](http://i.imgur.com/fcfqbPw.jpg)
 
 ### 4. 	*[P8:34](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/Lecture%208.pdf)* shows some examples of local features. Please try to define the geometry features based on the woman's face image (refer to *[P8:34](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/Lecture%208.pdf)* ) and give the number of features.  *(<font color=darkred>21</font>)* ###
 
