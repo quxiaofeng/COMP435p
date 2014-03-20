@@ -35,6 +35,8 @@ by [Qu Xiaofeng](http://www.quxiaofeng.me), [csxfqu@comp.polyu.edu.hk](mailto:cs
 
 ### 4. 	*[P8:34](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/Lecture%208.pdf)* shows some examples of local features. Please try to define the geometry features based on the woman's face image (refer to *[P8:34](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/Lecture%208.pdf)* ) and give the number of features.  *(<font color=darkred>21</font>)* ###
 
+[![](http://i.imgur.com/YUp3g2x.png)](http://i.imgur.com/YUp3g2x.png)
+
 ---
 
 ### Other related resources can be downloaded from [COMP435p Course Page](http://www2.comp.polyu.edu.hk/~csdzhang/comp435p/index.html) ###
