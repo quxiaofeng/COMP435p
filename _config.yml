@@ -1,7 +1,5 @@
+url: http://www.quxiaofeng.me/COMP435p
 baseurl: /COMP435p
-
-markdown: redcarpet
-pygments: true
 
 title_tag_text: COMP435p, Tutorial 7
 h1_tag_text: Tutorial 7
